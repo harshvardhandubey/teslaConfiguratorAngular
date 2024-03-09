@@ -14,10 +14,10 @@ export class GetDataService {
   constructor(private http: HttpClient) {}
 
    getModels() {
-    return this.http.get<Model[]>('/models')
+    return this.http.get<Model[]>('/models') //make and http call to the /models endpoint to get Models
   }
 
   getConfig(modelCode: string) {
-    return this.http.get<ConfigDetails>('/options/' + modelCode)
+    return this.http.get<ConfigDetails>('/options/' + modelCode) //make and http call to the /options/modelCode endpoint to get Configs
   }
 }

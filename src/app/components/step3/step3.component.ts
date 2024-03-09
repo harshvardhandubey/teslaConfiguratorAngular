@@ -18,11 +18,11 @@ yokePrice = 0;
 
 constructor() {
   if(this.dataService.towHitch) {
-    this.towHitchPrice = this.towHitchPrice + 1000;
+    this.towHitchPrice = this.towHitchPrice + 1000; //if tow hitch is selected in the checkbox, add 1000 to the tow hitch price for the final calculation
   }
 
   if(this.dataService.yoke) {
-    this.yokePrice = this.yokePrice + 1000;
+    this.yokePrice = this.yokePrice + 1000; //if yoke is selected in the checkbox, add 1000 to the yoke price for the final calculation
   }
 }
 

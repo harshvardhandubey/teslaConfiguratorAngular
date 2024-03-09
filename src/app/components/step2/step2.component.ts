@@ -43,18 +43,17 @@ export class Step2Component {
   }
 
   onConfigSelectChange() {
-    console.log("ONCONFIG CAHNGE CALLED")
     this.dataService.configPrice = 0;
     this.config = this.configs.find(config => config.id === Number(this.configCode))!;
+    this.setData();
+  }
+
+  setData() {
     this.dataService.configPrice = this.dataService.configPrice + this.config.price!;
     this.dataService.configDescr = this.config.description
     this.dataService.configRange = this.config.range
     this.dataService.configSpeed = this.config.speed
     this.dataService.configCode = this.configCode
-    // this.dataService.config = Object.assign({}, this.configs.find(config => config.id === Number(this.configCode)));
-    // console.log("IN STEP2 TS >> " + this.dataService.config.description)
-    // console.log("IN STEP2 TS >> " + this.dataService.config.range)
-    
     this.dataService.step3 = true;
   }
 }

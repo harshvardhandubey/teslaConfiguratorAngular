@@ -21,38 +21,10 @@ export class DataService {
   private _towHitch: boolean = false;
   private _yoke: boolean = false;
 
-  // private _model!: Model;
-  // private _color!: Color;
-  // private _config!: Config;
-
   private _step2: boolean = false;
   private _step3: boolean = false;
   
   constructor() { }
-
-  // public get model() {
-  //   return this._model;
-  // }
-
-  // public set model(_model: Model) {
-  //   this._model = _model;
-  // }
-
-  // public get color() {
-  //   return this._color;
-  // }
-
-  // public set color(_color: Color) {
-  //   this._color = _color;
-  // }
-
-  // public get config() {
-  //   return this._config;
-  // }
-
-  // public set config(_config: Config) {
-  //   this._config = _config;
-  // }
 
   public get modelCode() {
     return this._modelCode;

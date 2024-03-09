@@ -8,7 +8,7 @@ export const step3Guard: CanActivateFn = (route, state) => {
   if(dataService.step3) {
     return true;
   } else {
-    router.navigate(['/step1']);
+    router.navigate(['/step1']); //navigate to step 1 if condition isnt satisfied
     return false;
   }
 };

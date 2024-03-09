@@ -18,6 +18,7 @@ export class Step1Component {
   getDataService = inject(GetDataService)
   dataService = inject(DataService)
 
+
   models$: Observable<Model[]>
   models: Model[] = []
 
@@ -29,13 +30,11 @@ export class Step1Component {
   imgURLFinal = '';
 
   constructor() {
+    this.dataService.towHitch = false;
+    this.dataService.yoke = false;
+    this.dataService.configCode = 0;
+    this.dataService.step3 = false;
 
-    if (this.modelCode !== this.dataService.modelCode) {
-      this.dataService.towHitch = false;
-      this.dataService.yoke = false;
-      this.dataService.configCode = 0;
-    }
-    
     this.models$ = this.getDataService.getModels();
     this.models$.subscribe({
       next: (data) => {
@@ -44,7 +43,7 @@ export class Step1Component {
 
         this.colors = this.models.find(model => model.code === this.dataService.modelCode)?.colors!;
         this.colorCode = this.dataService.colorCode;
-        this.setData()
+        this.generateImageUrl()
       },
       error: (error) => {
         console.error('Error fetching data:', error);
@@ -56,29 +55,25 @@ export class Step1Component {
 
   }
 
-  setFinalModel() {
+  modelSelect() {
     this.colors = this.models.find(model => model.code === this.modelCode)?.colors!;
     this.colorCode = this.colors[0].code;
-    // this.dataService.color = this.colors[0]
     this.dataService.step2 = true;
-    this.setData();
+    this.generateImageUrl();
   }
 
   generateImageUrl() {
+    this.imgURLFinal = (this.baseimgURL + "/" + this.modelCode + "/" + this.colorCode + ".jpg");
     this.setData();
-    // this.dataService.color = Object.assign({}, this.colors?.find(color => color.code === this.colorCode));
   }
 
   setData() {
     this.dataService.colorPrice = 0;
-    this.imgURLFinal = (this.baseimgURL + "/" + this.modelCode + "/" + this.colorCode + ".jpg");
     this.dataService.colorCode = this.colorCode;
     this.dataService.modelCode = this.modelCode;
     this.dataService.colorPrice = this.dataService.colorPrice + this.colors?.find(color => color.code === this.colorCode)?.price!;
     this.dataService.modelName = this.models.find(model => model.code === this.modelCode)?.description!
     this.dataService.colorName = this.colors?.find(color => color.code === this.colorCode)?.description!
-    // this.dataService.model = Object.assign({}, this.models.find(model => model.code === this.modelCode));
-    // this.dataService.color = Object.assign({}, this.colors?.find(color => color.code === this.colorCode));
   }
 
 }

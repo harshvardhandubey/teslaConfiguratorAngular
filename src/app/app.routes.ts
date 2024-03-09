@@ -7,8 +7,8 @@ import { step3Guard } from './commons/guards/step3.guard';
 
 //Created routes for each step component
 export const routes: Routes = [
-    { path: '', redirectTo: 'step1', pathMatch: 'full' },
+    { path: '', redirectTo: 'step1', pathMatch: 'full' }, //blank route to be moved to step1
     { path: 'step1', title: 'Step1', component: Step1Component },
-    { path: 'step2', title: 'Step2', component: Step2Component, canActivate: [step2Guard] },
-    { path: 'step3', title: 'Step3', component: Step3Component, canActivate: [step3Guard] }
+    { path: 'step2', title: 'Step2', component: Step2Component, canActivate: [step2Guard] }, //guarding route 2 ,redirect to step 1 if unallowed
+    { path: 'step3', title: 'Step3', component: Step3Component, canActivate: [step3Guard] } //guarding route 3 ,redirect to step 1 if unallowed
 ];
