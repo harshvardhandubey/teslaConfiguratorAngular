@@ -13,8 +13,8 @@ import { ImageComponent } from '../image/image.component';
 })
 export class Step3Component {
 dataService: DataService = inject(DataService)
-towHitchPrice = 0;
-yokePrice = 0;
+towHitchPrice:number = 0;
+yokePrice:number = 0;
 
 
 constructor() {

@@ -16,8 +16,8 @@ import { ImageComponent } from '../image/image.component';
   styleUrl: './step1.component.scss'
 })
 export class Step1Component {
-  getDataService = inject(GetDataService)
-  dataService = inject(DataService)
+  getDataService: GetDataService = inject(GetDataService)
+  dataService: DataService = inject(DataService)
 
 
   models$: Observable<Model[]>
@@ -27,8 +27,8 @@ export class Step1Component {
   colorCode: string = '';
   colors: Color[] = [];
 
-  baseimgURL = 'https://interstate21.com/tesla-app/images';
-  imgURLFinal = '';
+  baseimgURL: string = 'https://interstate21.com/tesla-app/images';
+  imgURLFinal: string = '';
 
   constructor() {
     this.dataService.towHitch = false;
@@ -41,7 +41,6 @@ export class Step1Component {
       next: (data) => {
         this.models = data;
         this.modelCode = this.dataService.modelCode;
-
         this.colors = this.models.find(model => model.code === this.dataService.modelCode)?.colors!;
         this.colorCode = this.dataService.colorCode;
         this.generateImageUrl()
@@ -56,19 +55,19 @@ export class Step1Component {
 
   }
 
-  modelSelect() {
+  modelSelect(): void {
     this.colors = this.models.find(model => model.code === this.modelCode)?.colors!;
     this.colorCode = this.colors[0].code;
     this.dataService.step2 = true;
     this.generateImageUrl();
   }
 
-  generateImageUrl() {
+  generateImageUrl(): void {
     this.imgURLFinal = (this.baseimgURL + "/" + this.modelCode + "/" + this.colorCode + ".jpg");
     this.setData();
   }
 
-  setData() {
+  setData(): void {
     this.dataService.colorPrice = 0;
     this.dataService.colorCode = this.colorCode;
     this.dataService.modelCode = this.modelCode;

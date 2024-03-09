@@ -10,5 +10,5 @@ import { DataService } from '../../commons/data/data.service';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  dataService = inject(DataService) //injected Data Service to check the value of buttons if they're disabled or not
+  dataService: DataService = inject(DataService) //injected Data Service to check the value of buttons if they're disabled or not
 }

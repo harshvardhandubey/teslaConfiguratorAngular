@@ -9,5 +9,5 @@ import { DataService } from '../../commons/data/data.service';
   styleUrl: './image.component.scss'
 })
 export class ImageComponent {
-  dataService = inject(DataService)
+  dataService: DataService = inject(DataService)
 }

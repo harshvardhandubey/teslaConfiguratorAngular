@@ -16,17 +16,17 @@ import { ImageComponent } from '../image/image.component';
 })
 export class Step2Component {
 
-  getDataService = inject(GetDataService)
-  dataService= inject(DataService)
+  getDataService: GetDataService = inject(GetDataService)
+  dataService:DataService = inject(DataService)
   options$: Observable<ConfigDetails> 
-  configDetails: ConfigDetails | undefined
+  configDetails!: ConfigDetails
   configs: Config[] = []
 
   configCode: number = this.dataService.configCode;
   config!: Config;
 
 
-  constructor(){
+  constructor() {
     this.options$ = this.getDataService.getConfig(this.dataService.modelCode);
     
     this.options$.subscribe({
@@ -43,13 +43,13 @@ export class Step2Component {
     });
   }
 
-  onConfigSelectChange() {
+  onConfigSelectChange(): void {
     this.dataService.configPrice = 0;
     this.config = this.configs.find(config => config.id === Number(this.configCode))!;
     this.setData();
   }
 
-  setData() {
+  setData(): void {
     this.dataService.configPrice = this.dataService.configPrice + this.config.price!;
     this.dataService.configDescr = this.config.description
     this.dataService.configRange = this.config.range
