@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { DataService } from '../../commons/data/data.service';
 import { CurrencyPipe } from '@angular/common';
 import { NgIf } from '@angular/common';
+import { ImageComponent } from '../image/image.component';
 
 @Component({
   selector: 'app-step3',
   standalone: true,
-  imports: [CurrencyPipe, NgIf],
+  imports: [CurrencyPipe, NgIf, ImageComponent],
   templateUrl: './step3.component.html',
   styleUrl: './step3.component.scss'
 })

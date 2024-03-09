@@ -20,11 +20,20 @@ export class DataService {
   private _configCode: number = 0;
   private _towHitch: boolean = false;
   private _yoke: boolean = false;
+  private _imgURL: string = '';
 
   private _step2: boolean = false;
   private _step3: boolean = false;
   
   constructor() { }
+
+  public get imgURL() {
+    return this._imgURL;
+  }
+
+  public set imgURL(_imgURL: string){
+    this._imgURL = _imgURL;
+  }
 
   public get modelCode() {
     return this._modelCode;

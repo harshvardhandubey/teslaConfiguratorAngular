@@ -5,12 +5,13 @@ import { Observable } from 'rxjs';
 import { AsyncPipe, CommonModule, NgFor, NgIf } from '@angular/common'
 import { FormsModule } from '@angular/forms';
 import { DataService } from '../../commons/data/data.service';
+import { ImageComponent } from '../image/image.component';
 
 
 @Component({
   selector: 'app-step1',
   standalone: true,
-  imports: [AsyncPipe, NgIf, NgFor, CommonModule, FormsModule],
+  imports: [AsyncPipe, NgIf, NgFor, CommonModule, FormsModule, ImageComponent],
   templateUrl: './step1.component.html',
   styleUrl: './step1.component.scss'
 })
@@ -71,6 +72,7 @@ export class Step1Component {
     this.dataService.colorPrice = 0;
     this.dataService.colorCode = this.colorCode;
     this.dataService.modelCode = this.modelCode;
+    this.dataService.imgURL = this.imgURLFinal;
     this.dataService.colorPrice = this.dataService.colorPrice + this.colors?.find(color => color.code === this.colorCode)?.price!;
     this.dataService.modelName = this.models.find(model => model.code === this.modelCode)?.description!
     this.dataService.colorName = this.colors?.find(color => color.code === this.colorCode)?.description!

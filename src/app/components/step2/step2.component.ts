@@ -1,15 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Options, Config, ConfigDetails } from '../../commons/types/options';
+import { Config, ConfigDetails } from '../../commons/types/options';
 import { GetDataService } from '../../commons/get-data/get-data.service';
 import { DataService } from '../../commons/data/data.service';
 import { AsyncPipe, CommonModule, NgFor, NgIf } from '@angular/common'
 import { FormsModule } from '@angular/forms';
+import { ImageComponent } from '../image/image.component';
 
 @Component({
   selector: 'app-step2',
   standalone: true,
-  imports: [AsyncPipe, NgIf, NgFor, CommonModule, FormsModule],
+  imports: [AsyncPipe, NgIf, NgFor, CommonModule, FormsModule, ImageComponent],
   templateUrl: './step2.component.html',
   styleUrl: './step2.component.scss'
 })
