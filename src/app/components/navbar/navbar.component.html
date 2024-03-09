@@ -1,0 +1,5 @@
+<nav class="navbar">
+    <button id = "step1" class = "nav-item" routerLink="">Step 1</button>
+    <button id = "step2" class = "nav-item" routerLink="step2" [disabled]="!dataService.step2">Step 2</button>
+    <button id = "step3" class = "nav-item" routerLink="step3" [disabled]="!dataService.step3">Step 3</button>
+  </nav>

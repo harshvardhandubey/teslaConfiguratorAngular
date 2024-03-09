@@ -1,0 +1,18 @@
+<h1>Step 3: Summary</h1>
+<h2>Your Tesla {{dataService.modelName}}</h2>
+<hr>
+<table>
+    <tbody>
+      <tr> <td><b>{{ dataService.configDescr }}</b></td> <td class="price-cell">{{ dataService.configPrice | currency : 'USD'}}</td></tr>
+      <p>&nbsp; Range: {{dataService.configRange}} - Max Speed: {{dataService.configSpeed}}</p> 
+      <tr *ngIf="dataService.colorPrice > 0"> <td><b>{{dataService.colorName}} Color</b></td> <td class="price-cell">{{ dataService.colorPrice | currency : 'USD'}}</td></tr>
+      <tr *ngIf="dataService.towHitch"> <td><b>Tow Hitch Package </b></td> <td class="price-cell">{{ towHitchPrice | currency : 'USD'}}</td></tr>
+      <tr *ngIf="dataService.yoke"r> <td><b>Yoke Steering Package </b></td> <td class="price-cell">{{ yokePrice | currency : 'USD'}}</td></tr>
+    </tbody>
+  </table>
+<hr>
+  <table>
+    <tbody>
+      <tr> <td><b>TOTAL COST </b></td> <td class="price-cell">{{dataService.configPrice + dataService.colorPrice + towHitchPrice + yokePrice | currency : 'USD'}}</td></tr>
+    </tbody>
+  </table>

@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #000;
+    color: #fff;
+    padding: 2px;
+  }
+
+.nav-item {
+    flex: 1;
+    text-align: center;
+    list-style: none;
+    padding: 10px;
+    margin: 0 1px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  button:disabled {
+    cursor: not-allowed;
+  }
